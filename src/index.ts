@@ -54,3 +54,41 @@ class Cat2 extends Animal2 {
 let p2 = new Cat2('mhd', 20)
 // console.log(p2.name, p2.age); // 属性“name”受保护，只能在类“Animal2”及其子类中访问
 
+// 3 private修饰符（除了自己都访问不到）
+class Animal3 {
+    constructor(private name: string, private age: number) {
+        this.name = name;
+        this.age = age;
+    }
+    changeName(name: string) {
+        this.name = name; // 仅读属性只能在constructor中被赋值
+    }
+}
+
+class Cat3 extends Animal3 {
+    constructor(name: string, age: number) {
+        super(name, age);
+    }
+}
+let p3 = new Cat3('mx', 20);
+p3.changeName('22')
+
+
+// 静态属性和方法
+
+class Animal4 {
+    static name = '动物'; //静态属性
+    static getName() {
+        return '动物类';
+    }
+    private _name: string = 'tom4'
+    get name() { //属性访问器
+        return this._name;
+
+    }
+    set name(name: string) {
+        this._name = name;
+    }
+
+}
+let Animalmx = new Animal4();
