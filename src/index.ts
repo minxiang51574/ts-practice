@@ -92,3 +92,18 @@ class Animal4 {
 
 }
 let Animalmx = new Animal4();
+
+// 类的装饰器
+// 1装饰类
+function addSay(target: any) {
+    target.prototype.say = function () {
+        console.log('hello');
+    }
+}
+
+@addSay
+class Person2 {
+    say!: Function
+}
+let person = new Person2();
+person.say()
