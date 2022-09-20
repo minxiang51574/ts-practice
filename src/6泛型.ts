@@ -38,3 +38,5 @@ interface ISum<T> {
 let sum12: ISum<number> = (a: number, b: number) => {
     return 3 as any
 }
+
+// 4 默认泛型
